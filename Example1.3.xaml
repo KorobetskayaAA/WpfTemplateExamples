@@ -1,0 +1,82 @@
+﻿<Window x:Class="WpfTemplateExamples.Example1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTemplateExamples"
+        xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="300">
+    <Window.Resources>
+        <sys:Boolean x:Key="ToggleEnabled">True</sys:Boolean>
+        <LinearGradientBrush x:Key="GoldenBack" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Color="Beige" Offset="0"/>
+            <GradientStop Color="Yellow" Offset="0.7"/>
+            <GradientStop Color="BurlyWood" Offset="1"/>
+        </LinearGradientBrush>
+        <Style x:Key="StylishButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource GoldenBack}"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Foreground" Value="Olive"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Padding" Value="12 6"/>
+        </Style>
+        <ControlTemplate x:Key="BeautyButton" TargetType="Button">
+            <ControlTemplate.Resources>
+                <FontWeight x:Key="TextWeight">SemiBold</FontWeight>
+            </ControlTemplate.Resources>
+            <Grid>
+                <Border x:Name="ButtonShadow"
+                        CornerRadius="20" Margin="3 3 0 0" 
+                        Background="{TemplateBinding BorderBrush}" />
+                <Border x:Name="Button" CornerRadius="20" Margin="0 0 3 3" BorderThickness="1"
+                        BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" />
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12 8 14 11">
+                    <TextBlock Margin="2 1 0 0" 
+                               FontWeight="{StaticResource TextWeight}" 
+                               Foreground="{TemplateBinding OpacityMask}"
+                               Text="{TemplateBinding Content}"/>
+                    <TextBlock Margin="0 0 0 0" 
+                               FontWeight="{StaticResource TextWeight}" 
+                               Foreground="{TemplateBinding Foreground}"
+                               Text="{TemplateBinding Content}"/>
+                </Grid>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter TargetName="Button" Property="BorderThickness" Value="2"/>
+                    <Setter TargetName="ButtonShadow" Property="Margin" Value="4 4 0 0"/>
+                    <Setter TargetName="Button" Property="Margin" Value="0 0 4 4"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter TargetName="ButtonShadow" Property="Margin" Value="2 2 0 0"/>
+                    <Setter TargetName="Button" Property="Margin" Value="0 0 2 2"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Foreground" Value="Gray"/>
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Setter Property="BorderBrush" Value="Gray"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <StackPanel VerticalAlignment="Center">
+        <Button HorizontalAlignment="Center" IsEnabled="{DynamicResource ToggleEnabled}">
+            Regular Button
+        </Button>
+        <Button HorizontalAlignment="Center" Style="{StaticResource StylishButton}"
+                IsEnabled="{DynamicResource ToggleEnabled}">
+            Styled Button
+        </Button>
+        <Button HorizontalAlignment="Center" Template="{StaticResource BeautyButton}"
+                BorderBrush="Black" Background="{StaticResource GoldenBack}" 
+                Foreground="Olive"
+                IsEnabled="{DynamicResource ToggleEnabled}">
+            Templated Binded Button
+        </Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <CheckBox Click="CheckBox_Click" VerticalAlignment="Center" Margin="5" />
+            <Label>IsEnabled</Label>
+        </StackPanel>
+    </StackPanel>
+</Window>

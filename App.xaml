@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              xmlns:local="clr-namespace:WpfTemplateExamples"
-             StartupUri="Example1.2.xaml">
+             StartupUri="Example1.3.xaml">
     <Application.Resources>
         <sys:Double x:Key="BaseFontSize">19</sys:Double>
         <Style TargetType="Button">
