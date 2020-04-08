@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTemplateExamples"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="300">
+        Title="MainWindow" Height="350" Width="300">
     <Window.Resources>
         <LinearGradientBrush x:Key="GoldenBack" StartPoint="0.5,0" EndPoint="0.5,1">
                         <GradientStop Color="Beige" Offset="0"/>
@@ -25,7 +25,7 @@
                 <Border CornerRadius="20" Margin="0 0 3 3" BorderThickness="1"
                         BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" />
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12 8 14 11">
-                    <TextBlock Margin="2 1 0 0" FontWeight="DemiBold" Foreground="{TemplateBinding OpacityMask}"
+                    <TextBlock Margin="1 1 0 0" FontWeight="DemiBold" Foreground="{TemplateBinding OpacityMask}"
                                Text="{TemplateBinding Content}"/>
                     <TextBlock Margin="0 0 0 0" FontWeight="DemiBold" Foreground="{TemplateBinding Foreground}"
                                Text="{TemplateBinding Content}"/>

@@ -18,9 +18,9 @@ namespace WpfTemplateExamples
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Example1_2Window : Window
+    public partial class Example1_1Window : Window
     {
-        public Example1_2Window()
+        public Example1_1Window()
         {
             InitializeComponent();
         }
