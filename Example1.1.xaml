@@ -25,12 +25,10 @@
                 <Border CornerRadius="20" Margin="0 0 3 3" BorderThickness="1"
                         BorderBrush="Black" Background="{StaticResource GoldenBack}" />
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="12 8 14 11">
-                    <TextBlock Margin="2 1 0 0" FontWeight="DemiBold" Foreground="Beige">
-                        Templated Button
-                    </TextBlock>
-                    <TextBlock Margin="0 0 0 0" FontWeight="DemiBold" Foreground="Olive">
-                        Templated Button
-                    </TextBlock>
+                    <TextBlock Margin="2 1 0 0" FontWeight="DemiBold" Foreground="Beige"
+                               Text="Templated Button"/>
+                    <TextBlock Margin="0 0 0 0" FontWeight="DemiBold" Foreground="Olive"
+                               Text="Templated Button"/>
                 </Grid>
             </Grid>
         </ControlTemplate>
